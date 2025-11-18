@@ -1,0 +1,24 @@
+import json
+import matplotlib.pyplot as plt
+
+# JSON як текст
+json_text = """
+{
+  "class": "10-A",
+  "boys": 13,
+  "girls": 17
+}
+"""
+
+data = json.loads(json_text)
+
+boys = data["boys"]
+girls = data["girls"]
+
+labels = ['Хлопці', 'Дівчата']
+values = [boys, girls]
+
+plt.figure(figsize=(7,7))
+plt.pie(values, labels=labels, autopct='%1.1f%%', startangle=90)
+plt.title(f"Розподіл учнів у класі {data['class']}")
+plt.show()
